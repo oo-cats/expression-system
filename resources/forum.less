@@ -1,0 +1,37 @@
+.ExpressionPickerModal { width: ~"min(680px, 96vw)"; }
+.ExpressionPicker {
+  &-tabs, &-search, &-cardActions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  &-search .FormControl { flex: 1; min-width: 120px; }
+  &-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; margin: 14px 0; }
+  &-card { min-width: 0; border: 1px solid @control-bg; border-radius: @border-radius; padding: 6px; }
+  &-insert { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 8px; white-space: normal; padding: 10px 4px; }
+  &-insert img { width: 64px; height: 52px; object-fit: contain; }
+  &-name { width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; }
+  &-text { min-height: 36px; white-space: pre-wrap; overflow-wrap: anywhere; max-width: 100%; }
+  &-unicode { font-size: 28px; }
+  &-cardActions { align-items: center; justify-content: center; gap: 0; margin-bottom: 0; }
+  &-cardActions .Button { padding: 4px 6px; }
+  &-cardActions small, &-shortcode { color: @muted-color; font-size: 12px; overflow-wrap: anywhere; }
+  &-edit { display: flex; flex-direction: column; gap: 10px; padding: 12px; margin-top: 12px; background: @control-bg; border-radius: @border-radius; }
+}
+.TextEditor { position: relative; }
+.ExpressionShortcuts {
+  position: absolute; bottom: 52px; left: 8px; z-index: 20;
+  width: ~"min(400px, calc(100% - 16px))"; max-height: 240px; overflow-y: auto;
+  background: @body-bg; border: 1px solid @control-bg; border-radius: @border-radius;
+  box-shadow: 0 4px 14px fade(@text-color, 15%);
+  .Button { display: flex; width: 100%; align-items: center; gap: 8px; white-space: normal; text-align: left; }
+  .Button.active { background: @control-bg; }
+  img { width: 24px; height: 24px; object-fit: contain; }
+}
+.Post-body img.emoji, .ComposerBody-preview img.emoji {
+  width: auto; height: auto;
+  max-width: ~"var(--es-inline-width, 3em)";
+  max-height: ~"min(var(--es-inline-height, 1.5em), var(--es-inline-cap, 32px))";
+  vertical-align: ~"var(--es-baseline, -0.15em)";
+}
+@media (max-width: 480px) {
+  .ExpressionPickerModal .Modal-body { padding: 12px; }
+  .ExpressionPicker-tabs .Button { padding: 8px; }
+  .ExpressionPicker-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
